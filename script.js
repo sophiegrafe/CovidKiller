@@ -1,7 +1,9 @@
 import './styles.scss';
 import { vaccines } from './src/data';
 
+/* ********************* AFFICHAGE ***************************** */
 const app = document.getElementById('app');
+// injection du header - main - footer
 app.innerHTML = `
     <header>
       <h1>Coronavirus Vaccines</h1>
@@ -13,63 +15,66 @@ app.innerHTML = `
     <main></main>
     <footer></footer>
 `;
+// injection des "cartes infos" dans le main
 const main = document.querySelector('main');
 vaccines.forEach((vaccine) => {
   main.innerHTML += `
-        <div class="card" id="${vaccine.id}">
-          <div class="cardImg">
-            <img src="${vaccine.name}.jpg" alt="" />              
-          </div>
-          <div class="cardInfos">
-            <h3 class="vaccinesName">${vaccine.name}</h3>
-            <p class="vaccinesPatent"><strong>Inventor:</strong> ${
-  vaccine.patent
-}</p>
-            <p class="vaccinesProducer>"><strong>Product Origin:</strong> ${
-  vaccine.producer
-}</p>
-            <p class="vaccinesMethod>"><strong>Methods:</strong> ${
-  vaccine.method
-}</p>
-            <p class="vaccinesApproval"><strong>Status:</strong> ${
-  vaccine.approved ? 'Approved' : 'Unapproved yet'
-}</p>
-            <p class="vaccinesMethod>"><strong>Quantity:</strong> ${
-  vaccine.quantity
-} units</p>
-            <p class="vaccinesUPrice>"><strong>Unity price:</strong> ${
-  vaccine.uPrice
-} USD</p>            
-          </div>
-          <div class="reserve">
-            <label for="quantityReserved">Desired quantity: </label>
-            <input type="hidden" name="hiddenVaccineName" value="${
-  vaccine.name
-}">
-            <input            
-            type="number"
-            min="0"
-            step="1"
-            name="quantityReserved"
-            value="0"
-            />
-            <button class="btnReserve">Reserve</button>
-          </div>
-        </div>        
+        <body>
+    <div class="card" id="${vaccine.id}">
+      <div class="cardImg">
+        <img src="${vaccine.name}.jpg" alt="" />
+      </div>
+      <div class="cardInfos">
+        <h3 class="vaccinesName">${vaccine.name}</h3>
+        <p class="vaccinesPatent">
+          <strong>Inventor:</strong>${vaccine.patent}
+        </p>
+        <p class="vaccinesProducer">
+          <strong>Product Origin:</strong> ${vaccine.producer}
+        </p>
+        <p class="vaccinesMethod>">
+          <strong>Methods:</strong> ${vaccine.method}
+        </p>
+        <p class="vaccinesApproval">
+          <strong>Status:</strong> ${vaccine.approved ? 'Approved' : 'Unapproved yet'}
+        </p>
+        <p class="vaccinesMethod>">
+          <strong>Quantity:</strong> ${vaccine.quantity} units
+        </p>
+        <p class="vaccinesUPrice>">
+          <strong>Unity price:</strong> ${vaccine.uPrice} USD
+        </p>
+      </div>
+      <div class="reserve">
+        <label for="quantityReserved">Desired quantity: </label>
+        <input type="hidden" name="hiddenVaccineName" value="${vaccine.name}" />
+        <input
+          type="number"
+          min="0"
+          step="1"
+          name="quantityReserved"
+          value="0"
+        />
+        <button class="btnReserve">Reserve</button>
+      </div>
+    </div>
         `;
 });
 
+// injection dans le footer
 const footer = document.querySelector('footer');
-
 footer.innerHTML = `
   <h2>Your Order Cart:</h2>  
   <div id="reservedVaccine"></div> 
   <button id="finalOrder">Finalize the order</button>
 `;
 
+/** ****************************EVENT*************************** */
+
+// utilisation d'une delegation sur le body pour la gestion des events
 document.body.addEventListener('click', (e) => {
   /** ***** boutons du header ****** */
-  /* hide unapprove vaccines */
+  // bouton pour cacher les cartes vaccins non approuvés
   if (e.target.matches('#btnApprovedFilter')) {
     const vaccinesCards = document.querySelectorAll('.card');
     for (const vaccine of vaccines) {
@@ -83,7 +88,7 @@ document.body.addEventListener('click', (e) => {
     }
     e.target.innerHTML = 'Show All';
     e.target.id = 'btnshowAllVaccines';
-  /* reveal all vaccines */
+  // bouton pour révéler toutes les cartes vaccins
   } else if (e.target.matches('#btnshowAllVaccines')) {
     const vaccinesCards = document.querySelectorAll('.card');
     vaccinesCards.forEach((card) => {
@@ -92,7 +97,7 @@ document.body.addEventListener('click', (e) => {
     });
     e.target.innerHTML = 'Approuved Only';
     e.target.id = 'btnApprovedFilter';
-  /* injection reserved vaccines in footer */
+  // bouton reserver + injection des données dans le footer
   } else if (e.target.matches('.btnReserve')) {
     const reservedQuantity = e.target.parentNode.querySelector(
       'input[name="quantityReserved"]',
@@ -106,6 +111,7 @@ document.body.addEventListener('click', (e) => {
       e.target.parentNode.querySelector('input[name="quantityReserved"]').style.display = 'none';
       e.target.disabled = 'disabled';
     }
+  // bouton de confirmation de la commande
   } else if (e.target.matches('#finalOrder')) {
     app.innerHTML = `
     <div id="finalMessage">

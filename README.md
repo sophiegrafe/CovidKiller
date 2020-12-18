@@ -36,15 +36,41 @@ Les réponses peuvent être subjectives si il y a le signe **(s)** à la fin de 
 Vous pouvez répondre à même ce document ou dans un fichier à part.
 
 - Qu'est-ce que JavaScript vanilla ?
+  Le JavaScript vanilla est le langage Javascript proprement dit, c-à-dire sans bibliothèques additionnelles.
+  C'est aussi une référence qui rappeler aux développeurs que ce langage est déjà très puissant en tant que tel et se suffit souvent à lui-même. 
+
 - Qu'est-ce qu'AJAX ?
+  C'est un acronyme (Asynchronous JavaScript + XML) qui désigne une méthode qui permet de faire des mises à jours rapide de l'interface utilisateur.
+  Elle permet d'échanger des données textes sous différents formats (xml, html,...) entre le client et le serveur.
+  
 - Pourquoi JavaScript est parfois mal-aimé des devs ? **(s)**
+  On se demande :D
+  
 - Y a-t-il des types en JavaScript ? Si oui, lesquels ?
+  Oui il y a des types en Javascript, 7 types primitifs (booléen, null, undefined, number, bigInt, string, (symbol -> nouveau type depuis ECMA es6)) et 1 type object.
+
 - Est-ce que SASS est un langage qui est interprété par les navigateurs ?
+  Non ce n'est pas un langage en soi, mais un outil de développement qui va aider les développeurs dans leur travail.
+  Sass va infine "pré-processer" le fichier.scss et génèrer le css qui, lui, sera interprété par les navigateurs.
+
 - Pourquoi peut-on dire que JavaScript est un langage "multi-paradigmes" ? **(s)**
+  Javascript est un langage multiparadigme parce qu'on peut aborder et écrir du code JS sur base de différent paradigme, procédurals et fonctionnels.
+  JS, supporte le programmation orientée objet et fonctionnelle.
+
 - En JS, une fonction peut-elle retourner une fonction ?
+  Oui, une fonction peut être retournée par une autre fonction.
+  
 - Est-ce que `alert` existe en Node.JS ?
+  'alert' est une méthode de l'objet window qui permet de créer une popup dans le navigateur.
+  Node.js tournant du côté serveur il n'a pas accès aux méthodes du navigateur.
+
 - Est-ce que `window.console.log === console.log` dans le navigateur ?
+  Le navigateur renvoi "true". Donc oui.
+
 - Quel est votre aspect préféré de JavaScript ? **(s)**
+  JS étant très répendu, la documentation disponible est très riche, les bases sont relativement accessibles et ça rend ce langage très ludique.
+  Le fait de pouvoir l'utiliser à la fois côté client et côté serveur avec Node.js le rends à mon sens très attractif pour un developpeur junior.
+  
 
 ## Épreuve pratique sur 80pts
 Vous êtes codeuse/codeur JavaScript dans une clinique du centre-ville.
