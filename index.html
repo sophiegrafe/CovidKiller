@@ -4,48 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Epreuve JS</title>
-  </head>
-  <body>
-    <div class="card" id="${vaccine.id}">
-      <div class="cardImg">
-        <img src="${vaccine.name}.jpg" alt="" />
-      </div>
-      <div class="cardInfos">
-        <h3 class="vaccinesName">${vaccine.name}</h3>
-        <p class="vaccinesPatent">
-          <strong>Inventor:</strong>${vaccine.patent}
-        </p>
-        <p class="vaccinesProducer">
-          <strong>Product Origin:</strong> ${vaccine.producer}
-        </p>
-        <p class="vaccinesMethod>">
-          <strong>Methods:</strong> ${ vaccine.method }
-        </p>
-        <p class="vaccinesApproval">
-          <strong>Status:</strong> ${ vaccine.approved ? 'Approved' :
-          'Unapproved yet' }
-        </p>
-        <p class="vaccinesMethod>">
-          <strong>Quantity:</strong> ${ vaccine.quantity } units
-        </p>
-        <p class="vaccinesUPrice>">
-          <strong>Unity price:</strong> ${ vaccine.uPrice } USD
-        </p>
-      </div>
-      <div class="reserve">
-        <label for="quantityReserved">Desired quantity: </label>
-        <input type="hidden" name="hiddenVaccineName" value="${vaccine.name}" />
-        <input
-          type="number"
-          min="0"
-          step="1"
-          name="quantityReserved"
-          value="0"
-        />
-        <button class="btnReserve">Reserve</button>
-      </div>
-    </div>
-    <div id="app"></div>
+  </head>  
+    <div id="app"></div>    
     <script src="script.js"></script>
   </body>
 </html>

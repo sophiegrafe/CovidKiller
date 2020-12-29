@@ -16,6 +16,7 @@ app.innerHTML = `
     <footer></footer>
 `;
 // injection des "cartes infos" dans le main
+
 const main = document.querySelector('main');
 vaccines.forEach((vaccine) => {
   main.innerHTML += `
@@ -116,7 +117,8 @@ document.body.addEventListener('click', (e) => {
     app.innerHTML = `
     <div id="finalMessage">
       <h2>Your Order As Been Placed</h2>
-      <p>Thank you for your trust</p>    
+      <p>Thank you for your trust</p>
+      <button onclick="windowInit();">Abort </button>       
     </div>
     `;
   }
