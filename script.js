@@ -19,8 +19,7 @@ app.innerHTML = `
 
 const main = document.querySelector('main');
 vaccines.forEach((vaccine) => {
-  main.innerHTML += `
-        <body>
+  main.innerHTML += `    
     <div class="card" id="${vaccine.id}">
       <div class="cardImg">
         <img src="${vaccine.name}.jpg" alt="" />
